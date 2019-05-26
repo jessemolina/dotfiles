@@ -1,0 +1,198 @@
+# -- variables -- #
+
+# _i3 
+set $mod Mod1
+set_from_resource $fg i3wm.color1 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $tx i3wm.color7 #f0f0f0
+
+# applications
+set $app_launcher 	$HOME/.scripts/dmenu/dmenu_wal.sh
+set $app_terminal 	urxvt
+set $screen_lock	betterlockscreen -l dim
+
+# theme 
+set $bar		i3blocks 
+set $border		pixel 2
+
+set $font 		Hack
+set $font_size	8
+
+set $gaps_inner 	8
+set $gaps_outer		8
+
+set $layout		default
+
+set $wallpaper	"$HOME/.config/images/wallpaper.jpg"
+
+
+# workspaces
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws0 0
+
+
+# -- keybindings -- #
+
+# _i3 
+set $mod Mod1
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+x exec $screen_lock 
+
+# applications 
+bindsym $mod+Return exec $app_terminal
+bindsym $mod+space exec $app_launcher
+
+# modes
+mode "resize" {
+
+    bindsym h   resize shrink width 10 px or 10 ppt
+    bindsym j   resize shrink height 10 px or 10 ppt
+    bindsym k   resize grow height 10 px or 10 ppt
+    bindsym l   resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+
+}
+
+bindsym $mod+r mode "resize"
+
+# sound
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+
+
+# window focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# window management
+floating_modifier $mod
+bindsym $mod+q kill
+bindsym $mod+Shift+backslash 	split h
+bindsym $mod+backslash 			split v
+bindsym $mod+f fullscreen 
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout stacking
+bindsym $mod+t layout toggle split
+bindsym $mod+Shift+t floating toggle
+
+# window movement
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# workspaces
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# workspaces movement
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+# workspaces output 
+#workspace $workspace1 output DP-1-1
+#workspace $workspace2 output DP-1-1
+#workspace $workspace3 output DP-1-1
+#workspace $workspace4 output DP-1-1
+#workspace $workspace5 output DP-1-1
+#workspace $workspace6 output DP-1-2
+#workspace $workspace7 output DP-1-2
+#workspace $workspace8 output DP-1-2
+#workspace $workspace9 output DP-1-2
+#workspace $workspace0 output eDP-1
+
+## -- startup -- ## 
+
+# config 
+exec_always compton
+exec xrdb ~/.Xresources
+exec wal -R
+
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# keys
+exec_always xmodmap -e "clear lock" 
+exec_always xmodmap -e "keysym Caps_Lock = Escape"
+
+# mouse 
+exec_always unclutter &
+
+# sound 
+# exec_always pactl upload-sample /usr/share/sounds/freedesktop/stereo/bell.oga x11-bell
+# exec_always pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
+
+## -- theme -- ## 
+
+#_i3
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+
+# bar
+bar {
+    colors {
+        background $bg
+        statusline $tx
+        separator  $tx
+
+        #                   border   backgr. text 
+        focused_workspace   $bg      $bg     $fg 
+        #active_workspace    $bg      $bg     $tx
+        inactive_workspace  $bg      $bg     $tx
+        urgent_workspace    $fg      $fg     $tx
+    }
+
+    font pango:$font $font_size
+
+    status_command i3blocks
+}
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $fg
+client.focused_inactive $bg     $bg     $tx  $bg       $bg
+client.unfocused        $bg     $bg     $tx  $bg       $bg
+client.urgent           $bg     $bg     $tx  $bg       $bg
+client.placeholder      $bg     $bg     $tx  $bg       $bg
+
+client.background       $bg
+
+# font 
+font pango:$font $font_size
+
+# wallpaper
+exec_always --no-startup-id feh --bg-fill $wallpaper
+
+# windows 
+default_border $border
+workspace_layout $layout
