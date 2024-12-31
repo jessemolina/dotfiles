@@ -6,7 +6,7 @@ local harpoon = require("plugins.custom.harpoon")
 -- Applications
 wk.add({
   { "a", group = "Apps" },
-  -- TODO: Add application keybindings to open cli apps
+  { "<leader>ab", "<cmd>!zellij action new-pane -- bacon<CR>", desc = "Bacon" },
 })
 
 -- Buffer 
