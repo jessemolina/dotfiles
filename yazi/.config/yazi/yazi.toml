@@ -1,0 +1,16 @@
+[opener]
+# Define the "edit" opener to use Neovim
+edit = [{ run = 'nvim "$@"', block = true }]
+
+# Define the "pdf" opener to use Zathura, running as an orphan process
+pdf = [{ run = 'zathura "$@"', orphan = true }]
+
+[open]
+# Use "edit" for text files (or any file matching the MIME type "text/*")
+rules = [
+  { mime = "text/*", use = "edit" },
+  
+  # Use "pdf" for PDF files by matching either the extension or the MIME type
+  { name = "*.pdf", use = "pdf" },
+  { mime = "application/pdf", use = "pdf" }
+]

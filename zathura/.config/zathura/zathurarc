@@ -1,0 +1,13 @@
+# Enable copying to clipboard
+set selection-clipboard clipboard
+
+# Start with inverted colors
+set recolor true
+set recolor-keephue true
+
+# Optional: Adjust recolor foreground and background colors (if needed)
+# set recolor-darkcolor "#FFFFFF"
+# set recolor-lightcolor "#000000"
+
+# Other useful settings
+set adjust-open "best-fit"  # Opens documents fit to window size
