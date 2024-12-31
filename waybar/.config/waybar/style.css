@@ -1,0 +1,142 @@
+* {
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+window#waybar {
+    font-family: "Fira Code", monospace; /* Updated to Fira Code */
+    background-color: transparent;
+    border-bottom: 0px;
+    color: #cdd6f4; /* Text color: Text */
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+.modules-right {
+    margin: 10px 10px 0 0;
+}
+.modules-center {
+    margin: 10px 0 0 0;
+}
+.modules-left {
+    margin: 10px 0 0 10px;
+}
+
+button {
+    border: none;
+}
+
+#workspaces {
+    background-color: #000000; /* Base: Mantle */
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #cdd6f4; /* Text color: Text */
+    border-radius: 0;
+}
+
+#workspaces button:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+#workspaces button:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+#workspaces button:hover {
+    color: #fab387; /* Hover color: Peach */
+}
+
+#workspaces button.focused {
+    background-color: #45475a; /* Focused: Surface1 */
+}
+
+#workspaces button.urgent {
+    background-color: #f38ba8; /* Urgent: Red */
+}
+
+#idle_inhibitor,
+#scratchpad,
+#mode,
+#window,
+#clock,
+#battery,
+#backlight,
+#tray,
+#network,
+#wireplumber,
+#load {
+    padding: 0 10px;
+    background-color: #000000; /* Base: Mantle */
+    color: #cdd6f4; /* Text color: Text */
+}
+
+#cpu{
+    padding: 0 10px;
+    background-color: #000000; /* Base: Mantle */
+    color: #cdd6f4; /* Text color: Text */
+}
+
+#memory{
+    padding: 0 10px;
+    background-color: #000000; /* Base: Mantle */
+    color: #cdd6f4; /* Text color: Text */
+}
+
+#mode {
+    background-color: #a6e3a1; /* Mode: Green */
+    color: #000000; /* Text color */
+}
+
+#battery.charging, #battery.plugged {
+    background-color: #a6e3a1; /* Charging: Green */
+    color: #000000; /* Text color */
+}
+
+@keyframes blink {
+    to {
+        background-color: #000000; /* Base: Mantle */
+        color: #cdd6f4; /* Text color */
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f38ba8; /* Critical: Red */
+    color: #cdd6f4; /* Text color */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    font-family: "Fira Code", sans-serif; /* Updated to Fira Code */
+}
+
+#scratchpad.empty {
+    background: transparent;
+}
+
