@@ -240,8 +240,8 @@ wk.add({
 -- Register
 wk.add({
   { "<leader>r", group = "Registers", icon = "" },
-  { "<leader>rr", harpoon.toggle_telescope, desc = "Show" },
-  { "<leader>ri", harpoon.add_file, desc = "Insert" },
+  { "<leader>ri", harpoon.toggle_telescope, desc = "Show" },
+  { "<leader>ra", harpoon.add_file, desc = "Insert" },
   { "<leader>rn", harpoon.next, desc = "Next" },
   { "<leader>rp", harpoon.prev, desc = "Prev" },
   { "<leader>rd", harpoon.remove, desc = "Remove" },
