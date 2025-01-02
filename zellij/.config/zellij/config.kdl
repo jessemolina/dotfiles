@@ -165,7 +165,7 @@ plugins {
     session-manager { path "session-manager"; }
 }
 
-theme "default"
+theme "catppuccin-mocha"
 
 themes {
 
