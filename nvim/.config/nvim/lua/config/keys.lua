@@ -2,11 +2,13 @@ local wk = require("which-key")
 local builtin = require("telescope.builtin")
 local notes = require("plugins.custom.notes")
 local harpoon = require("plugins.custom.harpoon")
+local dap, dapui = require("dap"), require("dapui")
 
 -- Applications
 wk.add({
   { "a", group = "Apps" },
   { "<leader>ab", "<cmd>!zellij action new-pane -- bacon<CR>", desc = "Bacon" },
+  { "<leader>at", "<cmd>!zellij action new-pane -- taskwarrior-tui<CR>", desc = "Task" },
 })
 
 -- Buffer 
@@ -52,7 +54,12 @@ wk.add({
 -- Debug
 wk.add({
   { "<leader>d", group = "Debug", icon = "" },
-  -- TODO: Add debug keybindings
+  { "<leader>db", dap.toggle_breakpoint, desc = "Breakpoint" },
+  { "<leader>dc", dap.continue, desc = "Continue" },
+  { "<leader>di", dap.step_into, desc = "Step Into" },
+  { "<leader>do", dap.step_outo, desc = "Step Out" },
+  { "<leader>dn", dap.step_over, desc = "Step Next" },
+  { "<leader>dr", dapui.toggle, desc = "REPL" },
 })
 
 -- Errors
@@ -63,7 +70,7 @@ wk.add({
   { "<leader>en", vim.diagnostic.goto_next, desc = "Next" },
   { "<leader>ep", vim.diagnostic.goto_prev, desc = "Prev" },
   { "<leader>ee", vim.diagnostic.open_float, desc = "Line Diags" },
-  { "<leader>ea", builtin.diagnostics, desc = "All Diags" },
+  { "<leader>ei", builtin.diagnostics, desc = "All Diags" },
   { "<leader>ec", vim.diagnostic.hide, desc = "Clear" },
   { "<leader>es", vim.diagnostic.show, desc = "Show" },
   { "<leader>ew", vim.lsp.buf.workspace_symbol, desc = "Wksp Syms" },
