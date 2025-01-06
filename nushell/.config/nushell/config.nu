@@ -70,6 +70,8 @@ alias k = kubectl
 alias d = docker
 alias k = kubectl
 alias nv = nvim
+alias tw = task
+alias tt = taskwarrior-tui
 alias zj = zellij
 
 alias stow = stow -vt ~
