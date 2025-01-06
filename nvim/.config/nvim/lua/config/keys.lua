@@ -6,7 +6,7 @@ local dap, dapui = require("dap"), require("dapui")
 
 -- Applications
 wk.add({
-  { "a", group = "Apps" },
+  { "<leader>a", group = "Apps", icon = "󱂬" },
   { "<leader>ab", "<cmd>!zellij action new-pane -- bacon<CR>", desc = "Bacon" },
   { "<leader>at", "<cmd>!zellij action new-pane -- taskwarrior-tui<CR>", desc = "Task" },
 })
