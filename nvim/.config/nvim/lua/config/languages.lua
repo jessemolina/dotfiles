@@ -14,10 +14,10 @@ local languages = {
     lsp = "jdtls",
   },
 
-  rust = {
-    lsp = "rust_analyzer",
-    snippets = true
-  },
+  -- rust = {
+  --   lsp = "rust_analyzer",
+  --   snippets = true
+  -- },
 
   -- python = {
   --   lsp = "pyright",
