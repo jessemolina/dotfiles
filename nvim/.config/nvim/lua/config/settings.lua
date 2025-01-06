@@ -41,7 +41,7 @@ vim.opt.scrolloff = 10
 
 vim.opt.hlsearch = true
 
-vim.opt.conceallevel = 0
+vim.opt.conceallevel = 2
 
 vim.opt.shiftwidth = 4
 
@@ -49,8 +49,3 @@ vim.opt.shiftwidth = 4
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
-
-
-
-
