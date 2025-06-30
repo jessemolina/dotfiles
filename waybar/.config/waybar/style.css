@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    font-family: "Fira Code", monospace; /* Updated to Fira Code */
+    font-family: monospace, "Font Awesome 6 Free";
     background-color: transparent;
     border-bottom: 0px;
     color: #cdd6f4; /* Text color: Text */
@@ -43,6 +43,8 @@ button {
     background-color: transparent;
     color: #cdd6f4; /* Text color: Text */
     border-radius: 0;
+    font-family: "Font Awesome 6 Free", "Fira Code", monospace;
+    font-weight: 900; /* Font Awesome requires specific weight */
 }
 
 #workspaces button:first-child {
@@ -54,11 +56,14 @@ button {
 }
 
 #workspaces button:hover {
-    color: #fab387; /* Hover color: Peach */
+    background-color: #6c7086; /* Hover: Overlay0 */
+    color: #cdd6f4;
 }
 
-#workspaces button.focused {
-    background-color: #45475a; /* Focused: Surface1 */
+#workspaces button.focused,
+#workspaces button.active {
+    background-color: #89b4fa; /* Active: Catppuccin Blue */
+    color: #000000; /* Black text for contrast */
 }
 
 #workspaces button.urgent {
@@ -133,7 +138,7 @@ label:focus {
 }
 
 #tray menu {
-    font-family: "Fira Code", sans-serif; /* Updated to Fira Code */
+    font-family: monospace;
 }
 
 #scratchpad.empty {
