@@ -88,6 +88,8 @@ keybinds clear-defaults=true {
         // Layout swapping
         bind "Alt [" { PreviousSwapLayout; }        // Previous layout
         bind "Alt ]" { NextSwapLayout; }            // Next layout
+        bind "Shift Delete" { NextSwapLayout; }            // Next layout
+
     }
 
     // ============================================================================================
@@ -145,7 +147,7 @@ keybinds clear-defaults=true {
         bind "l" "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }  // Focus right
         bind "j" "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }    // Focus down
         bind "k" "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }        // Focus up
-        bind "p" { SwitchFocus; }                   // Cycle through panes
+        bind "Tab" { SwitchFocus; }                   // Cycle through panes
         
         // Pane creation
         bind "v" { NewPane; SwitchToMode "Normal"; }              // New pane (auto-split)
@@ -159,6 +161,8 @@ keybinds clear-defaults=true {
         // Floating pane operations
         bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }  // Toggle floating panes
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; } // Float/embed pane
+        bind "p" { TogglePanePinned; SwitchToMode "Normal"; } // Float/embed pane
+
     }
 
     // ============================================================================================
