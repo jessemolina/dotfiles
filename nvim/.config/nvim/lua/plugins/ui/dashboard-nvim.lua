@@ -30,7 +30,6 @@ return {
             "experience tranquility", 
             "true self is without form",
             "embrace the iris",
-            "pass into the iris",
             "peace be upon you",
             "adversity is an opportunity for change",
             "overconfidence is a flawed strategy",
