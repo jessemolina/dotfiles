@@ -3,52 +3,43 @@ return {
   event = "VimEnter",
   config = function()
     require("dashboard").setup({
-      theme = "hyper",
+      theme = "doom",
       config = {
         header = {
-          "",
-          "",
-          "",
-          "",
-          " █████╗ ███████╗ ██████╗ ██╗   ██╗ █████╗ ██████╗ ███████╗██████╗     ██╗      █████╗ ██████╗ ███████╗",
-          "██╔══██╗██╔════╝██╔═══██╗██║   ██║██╔══██╗██╔══██╗██╔════╝██╔══██╗    ██║     ██╔══██╗██╔══██╗██╔════╝",
-          "╚█████╔╝███████╗██║   ██║██║   ██║███████║██████╔╝█████╗  ██║  ██║    ██║     ███████║██████╔╝███████╗",
-          "██╔══██╗╚════██║██║▄▄ ██║██║   ██║██╔══██║██╔══██╗██╔══╝  ██║  ██║    ██║     ██╔══██║██╔══██╗╚════██║",
-          "╚█████╔╝███████║╚██████╔╝╚██████╔╝██║  ██║██║  ██║███████╗██████╔╝    ███████╗██║  ██║██████╔╝███████║",
-          " ╚════╝ ╚══════╝ ╚══▀▀═╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═════╝     ╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝",
-          "",
-          "",
-          "",
-          "",
+          "                                   ",
+          "  ██████╗  ██████╗      ██╗ ██████╗ ███████╗ ",
+          "  ╚════██╗██╔═══██╗     ██║██╔═══██╗██╔════╝ ",
+          "   █████╔╝██║   ██║     ██║██║   ██║███████╗ ",
+          "   ╚═══██╗██║   ██║██   ██║██║   ██║╚════██║ ",
+          "  ██████╔╝╚██████╔╝╚█████╔╝╚██████╔╝███████║ ",
+          "  ╚═════╝  ╚═════╝  ╚════╝  ╚═════╝ ╚══════╝ ",
+          "                                   ",
         },
-
-        week_header = {
-          enable = true,
+        center = {
+          { desc = "Dotfiles", key = "d", action = "lua vim.cmd('cd ~/lab/github/jessemolina/dotfiles'); require('telescope.builtin').find_files()" },
+          { desc = "Files", key = "f", action = "Telescope find_files" },
+          { desc = "Lab", key = "l", action = "lua require('telescope.builtin').find_files({cwd='~/lab/github/jessemolina', find_command={'find', '.', '-maxdepth', '1', '-type', 'd', '!', '-path', '.', '-printf', '%P\\n'}, attach_mappings=function(_, map) map('i', '<CR>', function(prompt_bufnr) local selection = require('telescope.actions.state').get_selected_entry() require('telescope.actions').close(prompt_bufnr) local dir = '~/lab/github/jessemolina/' .. selection.value vim.cmd('cd ' .. dir) require('telescope.builtin').find_files() end) return true end})" },
+          { desc = "Mentauro", key = "m", action = "lua require('telescope.builtin').find_files({cwd='~/lab/github/mentaurolabs', find_command={'find', '.', '-maxdepth', '1', '-type', 'd', '!', '-path', '.', '-printf', '%P\\n'}, attach_mappings=function(_, map) map('i', '<CR>', function(prompt_bufnr) local selection = require('telescope.actions.state').get_selected_entry() require('telescope.actions').close(prompt_bufnr) local dir = '~/lab/github/mentaurolabs/' .. selection.value vim.cmd('cd ' .. dir) require('telescope.builtin').find_files() end) return true end})" },
+          { desc = "Obsidian", key = "o", action = "ObsidianToday" },
+          { desc = "Recent", key = "r", action = "Telescope oldfiles" },
+          { desc = "Update", key = "u", action = "Lazy update" },
         },
-
-        shortcut = {
-          { desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
-          {
-            icon = " ",
-            icon_hl = "@variable",
-            desc = "Files",
-            group = "Label",
-            action = "Telescope find_files",
-            key = "f",
-          },
-          {
-            desc = " Apps",
-            group = "DiagnosticHint",
-            action = "Telescope app",
-            key = "a",
-          },
-          {
-            desc = " dotfiles",
-            group = "Number",
-            action = "Telescope dotfiles",
-            key = "d",
-          },
-        },
+        footer = function()
+          local quotes = {
+            "gaze into the iris",
+            "experience tranquility", 
+            "true self is without form",
+            "embrace the iris",
+            "pass into the iris",
+            "peace be upon you",
+            "adversity is an opportunity for change",
+            "overconfidence is a flawed strategy",
+            "walk in harmony",
+            "pain is an excellent teacher"
+          }
+          return { quotes[math.random(#quotes)] }
+        end,
+        vertical_center = true
       },
     })
   end,
