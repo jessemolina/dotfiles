@@ -1,4 +1,5 @@
-let base00 = "#1e1e2e" # Default Background
+# Catppuccin Mocha theme with black base (matching Neovim setup)
+let base00 = "#000000" # Default Background (changed to pure black)
 let base01 = "#313244" # Lighter Background (Used for status bars, line number, folding marks)
 let base02 = "#45475a" # Selection Background
 let base03 = "#585b70" # Comments, Invisibles, Line Highlighting
@@ -68,7 +69,6 @@ use ~/.cache/starship/init.nu
 
 alias k = kubectl 
 alias d = docker
-alias k = kubectl
 alias nv = nvim
 alias tw = task
 alias tt = taskwarrior-tui
@@ -76,5 +76,4 @@ alias zj = zellij
 
 alias stow = stow -vt ~
 alias lab = cd ~/lab/ 
-alias jm = cd ~/lab/github/jessemolina/
-
+alias hyprmon = ~/lab/github/jessemolina/dotfiles/scripts/hyprmon.nu
