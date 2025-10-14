@@ -235,9 +235,8 @@ endfunction
 " KEY MAPPINGS
 " =============================================================================
 
-" Notes selector mappings
-nnoremap <leader>nsl :call InsertNoteLink()<CR>
-nnoremap <leader>nsf :call SelectAndOpenNote()<CR>
+" Notes selector mappings  
+nnoremap <leader>nil :call InsertNoteLink()<CR>
 
 " General file selector mappings
 nnoremap <leader>fsl :call SelectAndOpenFile()<CR>

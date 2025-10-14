@@ -56,6 +56,12 @@ set undodir=~/.vim/undodir   " Undo directory
 set updatetime=250           " Faster completion
 set timeoutlen=1000          " Leader key timeout (1 second)
 
+" Color support
+set termguicolors            " Enable true color support
+if &term =~ '256color'
+  set t_Co=256
+endif
+
 " Create undo directory if it doesn't exist
 if !isdirectory(expand('~/.vim/undodir'))
     call mkdir(expand('~/.vim/undodir'), 'p')
