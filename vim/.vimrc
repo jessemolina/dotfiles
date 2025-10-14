@@ -54,8 +54,7 @@ set undodir=~/.vim/undodir   " Undo directory
 
 " Performance
 set updatetime=250           " Faster completion
-set timeoutlen=1000          " Default timeout for leader key sequences
-set ttimeoutlen=0            " No delay for key codes (Esc, arrows, etc.)
+set timeoutlen=1000          " Leader key timeout (1 second)
 
 " Create undo directory if it doesn't exist
 if !isdirectory(expand('~/.vim/undodir'))

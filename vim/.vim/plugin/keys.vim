@@ -7,25 +7,6 @@ if exists('g:loaded_keys_plugin') || &compatible
 endif
 let g:loaded_keys_plugin = 1
 
-" Quick test mapping
-nnoremap <leader><leader> :echo 'Double space works!'<CR>
-
-" Help function - show available leader key mappings
-function! ShowLeaderHelp()
-  echo "Leader Key Mappings:"
-  echo ""
-  echo "Buffer (b):  bb=last  bd=delete  bs=save  bn=next  bp=prev  bl=list"
-  echo "File (f):    ff=find  fs=save    fr=recent  fg=grep  fd=dir   fx=+x"
-  echo "Window (w):  ws=split wv=vsplit  wh/j/k/l=nav  wq=close  wo=only"
-  echo "Search (s):  sf=find  sb=buffers sg=grep  sw=word  sr=regs  sm=marks"
-  echo "Quit (q):    qq=quit  qa=all     qw=save&quit  qQ=force  qr=revert"
-  echo "Toggle (T):  Tn=nums  Tw=wrap    Ts=spell  Th=highlight  Tc=cursor"
-  echo "Jump (j):    jj=back  jk=forward jm=marks  jl=loclist  jq=quickfix"
-  echo ""
-  echo "Press <Space>? for this help"
-endfunction
-
-nnoremap <leader>? :call ShowLeaderHelp()<CR>
 
 " Smart save function - prompts for filename if buffer has no name
 function! SmartSave()
@@ -67,6 +48,9 @@ nnoremap <leader>fa :wa<CR>
 nnoremap <leader>fr :browse oldfiles<CR>
 nnoremap <leader>fg :vimgrep // **/*<Left><Left><Left><Left><Left><Left>
 nnoremap <leader>fd :e .<CR>
+nnoremap <leader>fe :Explore<CR>
+nnoremap <leader>fv :Vexplore<CR>
+nnoremap <leader>fh :Sexplore<CR>
 nnoremap <leader>fn :enew<CR>
 nnoremap <leader>fx :!chmod +x %<CR>
 nnoremap <leader>fq :q<CR>
