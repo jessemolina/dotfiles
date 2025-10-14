@@ -121,9 +121,16 @@ function! FindNote()
     return
   endif
   
-  " Search in notes directory
-  let cmd = 'find ' . g:notes_directory . ' -name "*' . pattern . '*.md" -type f | grep -v "/templates/" | sort -r | head -20'
-  let files = systemlist(cmd)
+  " Search in notes directory using glob
+  let glob_pattern = g:notes_directory . '/*' . pattern . '*.md'
+  let files = glob(glob_pattern, 0, 1)
+  
+  " Filter out template directories and sort by modification time
+  call filter(files, 'filereadable(v:val) && v:val !~ "/templates/"')
+  call sort(files, {a, b -> getftime(b) - getftime(a)})
+  
+  " Limit to 20 results
+  let files = files[:19]
   
   if empty(files)
     echo 'No notes found'
@@ -179,13 +186,16 @@ endfunction
 
 " Open existing note or create new one
 function! OpenOrCreateNote(link_text)
-  " Search for existing note with this text in filename
+  " Search for existing note with this text in filename using glob
   let search_pattern = substitute(a:link_text, ' ', '*', 'g')
-  let cmd = 'find ' . g:notes_directory . ' -name "*' . search_pattern . '*.md" -type f | grep -v "/templates/" | head -1'
-  let found = system(cmd)
+  let glob_pattern = g:notes_directory . '/*' . search_pattern . '*.md'
+  let matches = glob(glob_pattern, 0, 1)
   
-  if !empty(trim(found))
-    execute 'edit ' . trim(found)
+  " Filter out template directories and get only files
+  call filter(matches, 'filereadable(v:val) && v:val !~ "/templates/"')
+  
+  if !empty(matches)
+    execute 'edit ' . matches[0]
   else
     " Create new note
     if confirm('Create new note "' . a:link_text . '"?', "&Yes\n&No") == 1
