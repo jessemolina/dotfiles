@@ -51,9 +51,10 @@ return {
     bullet = {
       -- Style list bullets
       enabled = true,
-      icons = { "●", "○", "◆", "◇" },
+      -- icons = { "●", "○", "◆", "◇" },  -- Original icons (commented out)
+      icons = { "•", "◦", "▪", "▫" },     -- Simpler, more consistent icons
       left_pad = 0,
-      right_pad = 0,
+      right_pad = 0,                      
       highlight = "RenderMarkdownBullet",
     },
     checkbox = {
