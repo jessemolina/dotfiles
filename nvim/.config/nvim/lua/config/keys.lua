@@ -4,12 +4,21 @@ local notes = require("plugins.custom.notes")
 local harpoon = require("plugins.custom.harpoon")
 local dap, dapui = require("dap"), require("dapui")
 local code = require("tools.code")
+local repl = require("tools.repl")
 
 -- Applications
 wk.add({
   { "<leader>a", group = "Apps", icon = "󱂬" },
   { "<leader>ab", "<cmd>!zellij action new-pane -- bacon<CR>", desc = "Bacon" },
   { "<leader>at", "<cmd>!zellij action new-pane -- taskwarrior-tui<CR>", desc = "Task" },
+  { "<leader>as", function()
+      local filename = vim.fn.expand("%")
+      if filename:match("%.md$") then
+        vim.cmd("!zellij action new-pane --name slides -- sh -c 'zellij action toggle-fullscreen && slides " .. vim.fn.shellescape(filename) .. "'")
+      else
+        print("slides only works with .md files")
+      end
+    end, desc = "Slides" },
 })
 
 -- Buffer 
@@ -121,8 +130,8 @@ wk.add({
   { "<leader>gS", builtin.git_stash, desc = "Stash" },
   { "<leader>gm", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Toggle Blame" },
   { "<leader>gx", "<cmd>!git reset --soft HEAD~1<CR>", desc = "Undo Commit" },
-  { "<leader>gp", "<cmd>!git push<CR>", desc = "Push" },
-  { "<leader>gl", "<cmd>!git pull<CR>", desc = "Pull" },
+  { "<leader>gP", "<cmd>!git push<CR>", desc = "Push" },
+  { "<leader>gL", "<cmd>!git pull<CR>", desc = "Pull" },
   { "<leader>ga", "<cmd>!git add .<CR>", desc = "Add All" },
   { "<leader>gc", "<cmd>!git commit -m ''<Left>", desc = "Commit" },
   { "<leader>gA", "<cmd>!git amend<CR>", desc = "Amend" },
@@ -252,15 +261,29 @@ wk.add({
   { "<leader>qr", "<cmd>e!<CR>", desc = "Revert" },
 })
 
--- Register
+-- Marks (Harpoon)
 wk.add({
-  { "<leader>r", group = "Registers", icon = "" },
-  { "<leader>ri", harpoon.toggle_telescope, desc = "Show" },
-  { "<leader>ra", harpoon.add_file, desc = "Insert" },
-  { "<leader>rn", harpoon.next, desc = "Next" },
-  { "<leader>rp", harpoon.prev, desc = "Prev" },
-  { "<leader>rd", harpoon.remove, desc = "Remove" },
-  { "<leader>rD", harpoon.clear_list, desc = "Clear" },
+  { "<leader>m", group = "Marks", icon = "" },
+  { "<leader>mi", harpoon.toggle_telescope, desc = "Show" },
+  { "<leader>ma", harpoon.add_file, desc = "Add" },
+  { "<leader>mn", harpoon.next, desc = "Next" },
+  { "<leader>mp", harpoon.prev, desc = "Prev" },
+  { "<leader>md", harpoon.remove, desc = "Remove" },
+  { "<leader>mD", harpoon.clear_list, desc = "Clear" },
+})
+
+-- REPL
+wk.add({
+  { "<leader>r", group = "REPL", icon = "" },
+  { "<leader>re", repl.send_block, desc = "Eval Block" },
+  { "<leader>rl", repl.send_line, desc = "Send Line" },
+  { "<leader>rv", repl.send_visual, desc = "Send Visual", mode = "v" },
+  { "<leader>ro", repl.open_ipython, desc = "Open iPython" },
+  { "<leader>rc", repl.configure_target, desc = "Configure Target" },
+  { "<leader>rr", "<Plug>SlimeRegionSend", desc = "Send Region", mode = "v" },
+  { "<leader>rp", "<Plug>SlimeParagraphSend", desc = "Send Paragraph" },
+  { "<leader>rn", repl.new_python_block, desc = "New Python Block" },
+  { "<leader>rb", repl.new_python_block_above, desc = "Block Above" },
 })
 
 -- Search
