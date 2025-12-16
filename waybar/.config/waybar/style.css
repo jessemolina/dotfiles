@@ -83,17 +83,17 @@ button {
 #network,
 #wireplumber,
 #load {
-    padding: 0 10px;
+    padding: 0 5px;
     color: #cdd6f4; /* Text color: Text */
 }
 
 #cpu{
-    padding: 0 10px;
+    padding: 0 5px;
     color: #cdd6f4; /* Text color: Text */
 }
 
 #memory{
-    padding: 0 10px;
+    padding: 0 5px;
     color: #cdd6f4; /* Text color: Text */
 }
 
