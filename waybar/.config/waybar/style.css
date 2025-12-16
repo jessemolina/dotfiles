@@ -22,20 +22,22 @@ window#waybar.empty #window {
 
 .modules-right {
     margin: 10px 10px 0 0;
+    background-color: #000000; /* Base: Mantle */
+    border-radius: 5px;
 }
 .modules-center {
     margin: 10px 0 0 0;
+    background-color: #000000; /* Base: Mantle */
+    border-radius: 5px;
 }
 .modules-left {
     margin: 10px 0 0 10px;
+    background-color: #000000; /* Base: Mantle */
+    border-radius: 5px;
 }
 
 button {
     border: none;
-}
-
-#workspaces {
-    background-color: #000000; /* Base: Mantle */
 }
 
 #workspaces button {
@@ -82,19 +84,16 @@ button {
 #wireplumber,
 #load {
     padding: 0 10px;
-    background-color: #000000; /* Base: Mantle */
     color: #cdd6f4; /* Text color: Text */
 }
 
 #cpu{
     padding: 0 10px;
-    background-color: #000000; /* Base: Mantle */
     color: #cdd6f4; /* Text color: Text */
 }
 
 #memory{
     padding: 0 10px;
-    background-color: #000000; /* Base: Mantle */
     color: #cdd6f4; /* Text color: Text */
 }
 
