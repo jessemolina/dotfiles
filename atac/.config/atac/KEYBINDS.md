@@ -43,10 +43,10 @@
 ## Tab Navigation
 | Key | Action |
 |-----|--------|
-| `Tab` | Next parameter tab (Query, Headers, Body, Auth) |
-| `Shift-Tab` | Previous parameter tab |
-| `Ctrl-Tab` | Next result tab (Response, Headers, Cookies) |
-| `Ctrl-Shift-Tab` | Previous result tab |
+| `]` | Next parameter tab (Query, Headers, Body, Auth) |
+| `[` | Previous parameter tab |
+| `}` | Next result tab (Response, Headers, Cookies) |
+| `{` | Previous result tab |
 
 ## Text Input Fields
 | Key | Action |

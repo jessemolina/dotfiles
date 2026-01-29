@@ -64,9 +64,9 @@ toggle_element = "t" # Only used in tables (Query params, headers, cookies)
 duplicate_element = "y"
 
 [keybindings.request_selected]
-# Tab navigation - forward and backward
-param_next_tab = "Tab"
-param_prev_tab = "Shift-Tab"
+# Tab navigation (vim bracket-style)
+param_next_tab = "]"
+param_prev_tab = "["
 
 change_url = "u"
 change_method = "m"
@@ -93,6 +93,6 @@ scroll_right = "l"
 
 yank_response_part = "y" # Used to yank the current result tab
 
-# Result tab navigation - forward and backward
-result_next_tab = "Ctrl-Tab"
-result_prev_tab = "Ctrl-Shift-Tab"
+# Result tab navigation (vim section-style)
+result_next_tab = "}"
+result_prev_tab = "{"
