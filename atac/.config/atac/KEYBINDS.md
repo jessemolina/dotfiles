@@ -1,54 +1,82 @@
-# ATAC Vim Keybindings Cheatsheet
+# ATAC Vim Keybindings
 
 ## Navigation
+
 | Key | Action |
 |-----|--------|
 | `h` | Move left |
 | `j` | Move down |
 | `k` | Move up |
 | `l` | Move right |
-| `Up/Down/Left/Right` | Alternative navigation |
-| `Esc` | Go back / Cancel |
-| `Enter` | Select / Confirm |
+| `Esc` | Go back |
+| `Enter` | Select |
 
-## Main Menu (Collections List)
+Arrow keys available as alternatives.
+
+## Main Menu
+
 | Key | Action |
 |-----|--------|
-| `q` | Exit ATAC |
+| `q` | Exit |
 | `h` | Unselect request |
 | `l` | Expand collection |
 | `Ctrl-Up` | Move request up |
 | `Ctrl-Down` | Move request down |
-
-## Environment & Views
-| Key | Action |
-|-----|--------|
 | `Shift-E` | Next environment |
-| `Ctrl-e` | Display environment editor |
-| `Shift-C` | Display cookies |
-| `Shift-L` | Display logs |
-| `v` | Next view (parameter ↔ result) |
-| `Ctrl-h` | Display help |
+| `Ctrl-e` | Environment editor |
+| `Shift-C` | Cookies |
+| `Shift-L` | Logs |
+| `Ctrl-h` | Help |
 
-## Request Management
+## Request
+
 | Key | Action |
 |-----|--------|
 | `Space` | Send request |
-| `Ctrl-Enter` | Alternative send request |
+| `Ctrl-Enter` | Send request (alt) |
 | `u` | Change URL |
 | `m` | Change method |
 | `s` | Request settings |
+| `v` | Toggle view (params/results) |
 | `Ctrl-e` | Export request |
 
 ## Tab Navigation
+
 | Key | Action |
 |-----|--------|
-| `]` | Next parameter tab (Query, Headers, Body, Auth) |
-| `[` | Previous parameter tab |
-| `}` | Next result tab (Response, Headers, Cookies) |
+| `]` | Next param tab |
+| `[` | Previous param tab |
+| `}` | Next result tab |
 | `{` | Previous result tab |
 
-## Text Input Fields
+## Param Tabs
+
+| Key | Action |
+|-----|--------|
+| `a` | Change auth method |
+| `b` | Change body content type |
+| `Shift-M` | Change WebSocket message type |
+
+## Result Tabs
+
+| Key | Action |
+|-----|--------|
+| `h/j/k/l` | Scroll |
+| `y` | Yank response |
+
+## List & Table Actions
+
+| Key | Action |
+|-----|--------|
+| `n` | Create |
+| `d` | Delete |
+| `r` | Rename |
+| `t` | Toggle |
+| `y` | Duplicate |
+| `Enter` | Edit |
+
+## Text Input
+
 | Key | Action |
 |-----|--------|
 | `Enter` | Confirm |
@@ -58,37 +86,11 @@
 | `Left/Right` | Move cursor |
 | `Home/End` | Line start/end |
 
-## Text Areas (Request Body) - Vim Mode
-**Note:** Text areas use `VimEmulation` mode with full vim keybindings including:
-- Normal mode navigation (`hjkl`, `w`, `b`, `0`, `$`, `gg`, `G`)
-- Insert mode (`i`, `a`, `o`, `O`)
-- Visual mode (`v`)
-- Editing commands (`dd`, `yy`, `p`, `u`, `Ctrl-r`)
-- Search (`/`, `?`, `n`, `N`)
+## Text Areas (Request Body)
 
-## List & Table Actions
-| Key | Action |
-|-----|--------|
-| `n` | Create element |
-| `d` | Delete element |
-| `Enter` | Edit element |
-| `r` | Rename element |
-| `t` | Toggle element |
-| `y` | Duplicate element |
-
-## Result Tabs
-| Key | Action |
-|-----|--------|
-| `k/j` | Scroll up/down |
-| `h/l` | Scroll left/right |
-| `y` | Yank current result tab |
-
-## Authentication & Body
-| Key | Action |
-|-----|--------|
-| `a` | Change auth method |
-| `b` | Change body content type |
-| `Shift-M` | Change WebSocket message type |
-
----
-*Press `Ctrl-h` from anywhere in ATAC to see contextual help*
+Uses `VimEmulation` mode with full vim keybindings:
+- Normal mode: `hjkl`, `w`, `b`, `0`, `$`, `gg`, `G`
+- Insert mode: `i`, `a`, `o`, `O`
+- Visual mode: `v`
+- Commands: `dd`, `yy`, `p`, `u`, `Ctrl-r`
+- Search: `/`, `?`, `n`, `N`
