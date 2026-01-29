@@ -1,0 +1,98 @@
+# Minimal vim keybindings - hjkl navigation + vim text editing with defaults elsewhere
+
+[keybindings.main_menu]
+exit = "q" # ctrl-c is implemented by default
+
+# Use hjkl for collection navigation
+unselect_request = "h"
+expand_collection = "l"
+
+# Keep default shortcuts for moving requests  
+move_request_up = "Ctrl-Up"
+move_request_down = "Ctrl-Down"
+
+# Environment shortcuts (Shift to avoid conflicts with hjkl navigation)
+next_environment = "Shift-E"
+display_env_editor = "Ctrl-e"
+display_cookies = "Shift-C"
+display_logs = "Shift-L"
+
+[keybindings.generic]
+display_help = "Ctrl-h" # Keep default help
+
+# Collection name, request name, URL, Header, Query param, Basic Auth, Bearer Token
+[keybindings.generic.text_inputs.text_input]
+confirm = "Enter"
+cancel = "Esc"
+
+delete_backward = "Delete" 
+delete_forward = "Backspace"
+
+# Keep default cursor movement in text inputs
+move_cursor_left = "Left"
+move_cursor_right = "Right"
+move_cursor_line_start = "Home"
+move_cursor_line_end = "End"
+
+# Request body - Enable vim mode for text areas
+[keybindings.generic.text_inputs]
+text_area_mode = "VimEmulation"
+
+# Navigation in tables, popups, collections list - USE HJKL
+[keybindings.generic.navigation]
+move_cursor_up = "k"
+move_cursor_down = "j"
+move_cursor_left = "h"
+move_cursor_right = "l"
+
+# Keep arrow keys as alternatives to avoid conflicts
+alt_move_cursor_up = "Up"
+alt_move_cursor_down = "Down"
+alt_move_cursor_left = "Left"
+alt_move_cursor_right = "Right"
+
+go_back = "Esc"
+select = "Enter"
+
+# Collections list, query params, headers, cookies - Keep defaults
+[keybindings.generic.list_and_table_actions]
+create_element = "n"
+delete_element = "d"
+edit_element = "Enter" # Edit query param, header, basic auth, bearer token
+rename_element = "r" # Only used in the collections list (main menu)
+toggle_element = "t" # Only used in tables (Query params, headers, cookies)
+duplicate_element = "y"
+
+[keybindings.request_selected]
+# Tab navigation - forward and backward
+param_next_tab = "Tab"
+param_prev_tab = "Shift-Tab"
+
+change_url = "u"
+change_method = "m"
+request_settings = "s"
+
+next_view = "v"
+
+send_request = "Space"
+alt_send_request = "Ctrl-Enter"
+
+export_request = "Ctrl-e"
+
+[keybindings.request_selected.param_tabs]
+change_auth_method = "a"
+change_body_content_type = "b"
+change_message_type = "Shift-M" # WebSocket message type (v0.21.0+)
+
+[keybindings.request_selected.result_tabs]
+# Keep hjkl for scrolling results
+scroll_up = "k"
+scroll_down = "j"
+scroll_left = "h"
+scroll_right = "l"
+
+yank_response_part = "y" # Used to yank the current result tab
+
+# Result tab navigation - forward and backward
+result_next_tab = "Ctrl-Tab"
+result_prev_tab = "Ctrl-Shift-Tab"
